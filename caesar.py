@@ -24,11 +24,10 @@ def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
                 chiphertext += chr(a-23)
             else:
                 chiphertext += chr(a+3)
-        elif plaintext.isspace():
-            continue
         else:
             chiphertext += plaintext[i]
     return chiphertext
+
 
 def decrypt_caesar(chiphertext: str, shift: int = 3) -> str:
     """
@@ -58,6 +57,7 @@ def decrypt_caesar(chiphertext: str, shift: int = 3) -> str:
         else:
             plaintext += chiphertext[i]
     return plaintext
+print (decrypt_caesar('DEFGHIJ...YZABC sbwkrq Sbwkrq3.6'))
 
 def caesar_breaker_brute_force(chiphertext: str, dictionary: tp.Set[str]) -> int:
     """

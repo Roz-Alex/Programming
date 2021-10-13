@@ -27,7 +27,7 @@ def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
         else:
             chiphertext += plaintext[i]
     return chiphertext
-print (encrypt_caesar('PYTHON', 15))
+print(encrypt_caesar('XYZ'))
 
 def decrypt_caesar(chiphertext: str, shift: int = 3) -> str:
     """
@@ -57,7 +57,6 @@ def decrypt_caesar(chiphertext: str, shift: int = 3) -> str:
         else:
             plaintext += chiphertext[i]
     return plaintext
-print (decrypt_caesar('ENIWDC', 15))
 
 def caesar_breaker_brute_force(chiphertext: str, dictionary: tp.Set[str]) -> int:
     """

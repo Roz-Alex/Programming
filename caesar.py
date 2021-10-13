@@ -27,6 +27,7 @@ def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
         else:
             chiphertext += plaintext[i]
     return chiphertext
+print (encrypt_caesar('PYTHON', 15))
 
 def decrypt_caesar(chiphertext: str, shift: int = 3) -> str:
     """
@@ -45,17 +46,18 @@ def decrypt_caesar(chiphertext: str, shift: int = 3) -> str:
     for i in range(len(chiphertext)):
         if chiphertext[i].isalpha():
             a = ord(chiphertext[i])
-            if chiphertext[i].isupper() and a <= 67:
-                plaintext += chr(a+23)
-            elif chiphertext[i].islower() and a <= 99:
-                plaintext += chr(a+23)
+            if chiphertext[i].isupper() and a <= 64+shift:
+                plaintext += chr(a+26-shift)
+            elif chiphertext[i].islower() and a <= 96+shift:
+                plaintext += chr(a+26-shift)
             else:
-                plaintext += chr(a-3)
+                plaintext += chr(a-shift)
         elif chiphertext.isspace():
             continue
         else:
             plaintext += chiphertext[i]
     return plaintext
+print (decrypt_caesar('ENIWDC', 15))
 
 def caesar_breaker_brute_force(chiphertext: str, dictionary: tp.Set[str]) -> int:
     """

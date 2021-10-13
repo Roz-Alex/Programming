@@ -46,7 +46,7 @@ def decrypt_vigenere(ciphertext: str, keyword: str) -> str:
     a = 0
     while len(ciphertext) > len(keyword):
         keyword += keyword[a]
-    a += 1
+        a += 1
     for i in range (len(keyword)):
         if keyword[i].isupper():
             key = ord(keyword[i]) - 65
